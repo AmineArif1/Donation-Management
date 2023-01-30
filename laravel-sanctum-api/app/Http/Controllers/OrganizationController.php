@@ -81,6 +81,9 @@ class OrganizationController extends Controller
 
     {
         $user = User::find($id);
-        $organization = $user->organization;
-        return $organization->get();
+        $organizations = Organization::join('donation', 'donation.idOrganization', '=', 'organization.idOrganization')
+    ->where('donation.id', $user->id)
+    ->get();
+        return $organizations;
     }
+}

@@ -7,7 +7,7 @@ class Donation extends Model
     use HasFactory;
     protected $table = 'donation';
     protected $fillable = [
-        'idUser',
+        'id',
         'idOrganization',
         'somme',
     ];

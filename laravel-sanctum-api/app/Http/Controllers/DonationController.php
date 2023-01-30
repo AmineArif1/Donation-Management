@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Donation;
+use App\Models\User;
 
 
 class DonationController extends Controller
@@ -27,11 +28,14 @@ class DonationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'idUser' => 'required',
+            'id' => 'required',
             'idOrganization' => 'required',
             'somme' => 'required'
         ]);
-
+        
+        $user =User::where('id', $request->id)->first();
+        echo $user->email;
+        MailController::basic_email($user, $request->somme);
         return Donation::create($request->all());
     }
 

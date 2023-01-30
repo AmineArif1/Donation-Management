@@ -14,11 +14,11 @@ class Donation extends Migration
     public function up()
     {
         Schema::create('Donation', function (Blueprint $table) {
-            $table->unsignedBigInteger('idUser');
+            $table->unsignedBigInteger('id');
             $table->unsignedBigInteger('idOrganization');
             $table->string('somme');
             $table->timestamps();
-            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('idOrganization')->references('idOrganization')->on('organization')->onDelete('cascade');
         });
     }

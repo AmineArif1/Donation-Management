@@ -30,8 +30,6 @@ Route::get('/products/search/{name}', [ProductController::class, 'search']);
 Route::get('/organizations', [OrganizationController::class, 'index']);
 Route::get('/organization/{id}', [OrganizationController::class, 'show']);
 Route::get('/organization/search/{name}', [OrganizationController::class, 'search']);
-
-
 // Protected routes
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/products', [ProductController::class, 'store']);
