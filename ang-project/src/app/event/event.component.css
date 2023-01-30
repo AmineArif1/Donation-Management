@@ -1,0 +1,253 @@
+/*******************************/
+/******* Page Header CSS *******/
+/*******************************/
+.page-header {
+    position: relative;
+    margin-bottom: 45px;
+    padding: 210px 0 90px 0;
+    text-align: center;
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), ;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.page-header h2 {
+    position: relative;
+    color: #14AD89;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+.page-header h2::after {
+    position: absolute;
+    content: "";
+    width: 100px;
+    height: 2px;
+    left: calc(50% - 50px);
+    bottom: 0;
+    background: #14AD89;
+}
+
+.page-header a {
+    position: relative;
+    padding: 0 12px;
+    font-size: 22px;
+    color: #ffffff;
+}
+
+.page-header a:hover {
+    color: #14AD89;
+}
+
+.page-header a::after {
+    position: absolute;
+    content: "/";
+    width: 8px;
+    height: 8px;
+    top: -2px;
+    right: -7px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.page-header a:last-child::after {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .page-header {
+        padding: 60px 0;
+    }
+    
+    .page-header h2 {
+        font-size: 45px;
+    }
+    
+    .page-header a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .page-header {
+        padding: 45px 0;
+    }
+    
+    .page-header h2 {
+        font-size: 35px;
+    }
+    
+    .page-header a {
+        font-size: 18px;
+    }
+}
+
+
+/*******************************/
+/******* Section Header ********/
+/*******************************/
+.section-header {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 45px auto;
+}
+
+.section-header p {
+    margin-bottom: 5px;
+    position: relative;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color: #14AD89;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+@media (max-width: 991.98px) {
+    .section-header h2 {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .section-header h2 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .section-header h2 {
+        font-size: 35px;
+    }
+}
+
+/*******************************/
+/********** Event CSS **********/
+/*******************************/
+.event {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 15px 0;
+}
+
+.event .event-item {
+    margin-bottom: 30px;
+    background: #f3f6ff;
+}
+
+.event .event-item img {
+    width: 100%;
+}
+
+.event .event-content {
+    padding: 30px;
+    display: flex;
+}
+
+.event .event-meta {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.event .event-meta p {
+    position: relative;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+}
+
+.event .event-meta p:last-child {
+    border-bottom: none;
+}
+
+.event .event-meta i {
+    color: #4a4c70;
+    width: 25px;
+}
+
+.event .event-text {
+    position: relative;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.event .event-text::before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: calc(100% - 5px);
+    top: 6px;
+    left: 0;
+    background: rgba(0, 0, 0, .15);
+}
+
+.event .event-text::after {
+    position: absolute;
+    content: "";
+    width: 3px;
+    height: 40px;
+    top: calc(50% - 20px);
+    left: -1px;
+    background: #14AD89;
+}
+
+.event .event-text h3 {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.event .event-text p {
+    margin: 0;
+}
+
+.event .btn.btn-custom {
+    margin-top: 20px;
+    padding: 8px 30px;
+}
+
+@media (max-width: 575.98px) {
+    .event .event-content {
+        flex-direction: column;
+    }
+    
+    .event .event-meta {
+        flex-direction: row;
+    }
+    
+    .event .event-meta p {
+        font-size: 14px;
+        padding-right: 7px;
+    }
+    
+    .event .event-meta p:last-child {
+        border-bottom: 1px solid rgba(0, 0, 0, .15);
+    }
+    
+    .event .event-meta i {
+        width: 18px;
+    }
+    
+    .event .event-text {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .event .event-text::before,
+    .event .event-text::after {
+        display: none;
+    }
+}
+
+

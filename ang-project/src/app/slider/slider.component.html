@@ -1,0 +1,242 @@
+@import"src/assets/lib/owlcarousel/assets/owl.carousel.min.css" 
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+ 
+
+
+         <!-- Carousel Start -->
+ <div class="carousel">
+    <div class="container-fluid">
+        <div class="owl-carousel">
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="assets/img/carousel-1.jpg" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h1>حصنوا أموالكم بالزكاة</h1>
+                    <p>
+                        في قر هذا الشتاء , يحتاج أطفال المخيمات و القرى النائية لكل ما يشمل لوازم التدفئة
+                    </p>
+                    <div class="carousel-btn">
+                        <a class="btn btn-custom" href="">Donate Now</a>
+                        <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="assets/img/carousel-2.jpg" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h1>من كان في حاجة أخيه كان الله في حاجته</h1>
+                    <p>
+                        في قر هذا الشتاء , يحتاج أطفال المخيمات و القرى النائية لكل ما يشمل لوازم التدفئة
+                    </p>
+                    <div class="carousel-btn">
+                        <a class="btn btn-custom" href="">Donate Now</a>
+                        <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="assets/img/carousel-3.jpg" alt="Image">
+                </div>
+                <div class="carousel-text">
+                    <h1>هونوا عليهم صقيع الشتاء</h1>
+                    <p>
+                        في قر هذا الشتاء , يحتاج أطفال المخيمات و القرى النائية لكل ما يشمل لوازم التدفئة
+                    </p>
+                    <div class="carousel-btn">
+                        <a class="btn btn-custom" href="">Donate Now</a>
+                        <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+<script>
+    (function ($) {
+    "use strict";
+    
+    // loader
+    var loader = function () {
+        setTimeout(function () {
+            if ($('#loader').length > 0) {
+                $('#loader').removeClass('show');
+            }
+        }, 1);
+    };
+    loader();
+    
+    // Back to top button
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+            $('.back-to-top').fadeIn('slow');
+        } else {
+            $('.back-to-top').fadeOut('slow');
+        }
+    });
+    $('.back-to-top').click(function () {
+        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+        return false;
+    });
+    
+    
+    // Sticky Navbar
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 0) {
+            $('.navbar').addClass('nav-sticky');
+        } else {
+            $('.navbar').removeClass('nav-sticky');
+        }
+    });
+    
+    
+    // Dropdown on mouse hover
+    $(document).ready(function () {
+        function toggleNavbarMethod() {
+            if ($(window).width() > 992) {
+                $('.navbar .dropdown').on('mouseover', function () {
+                    $('.dropdown-toggle', this).trigger('click');
+                }).on('mouseout', function () {
+                    $('.dropdown-toggle', this).trigger('click').blur();
+                });
+            } else {
+                $('.navbar .dropdown').off('mouseover').off('mouseout');
+            }
+        }
+        toggleNavbarMethod();
+        $(window).resize(toggleNavbarMethod);
+    });
+
+    
+    // Main carousel
+    $(".carousel .owl-carousel").owlCarousel({
+        autoplay: true,
+        animateOut: 'fadeOut',
+        animateIn: 'fadeIn',
+        items: 1,
+        smartSpeed: 300,
+        dots: false,
+        loop: true,
+        nav : true,
+        navText : [
+            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+        ]
+    });
+    
+    
+    // Modal Video
+    $(document).ready(function () {
+        var $videoSrc;
+        $('.btn-play').click(function () {
+            $videoSrc = $(this).data("src");
+        });
+        console.log($videoSrc);
+
+        $('#videoModal').on('shown.bs.modal', function (e) {
+            $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
+        })
+
+        $('#videoModal').on('hide.bs.modal', function (e) {
+            $("#video").attr('src', $videoSrc);
+        })
+    });
+    
+    
+    // Causes carousel
+    $(".causes-carousel").owlCarousel({
+        autoplay: true,
+        animateIn: 'slideInDown',
+        animateOut: 'slideOutDown',
+        items: 1,
+        smartSpeed: 450,
+        dots: false,
+        loop: true,
+        responsive: {
+            0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+    
+    
+    // Causes progress
+    $('.causes-progress').waypoint(function () {
+        $('.progress .progress-bar').each(function () {
+            $(this).css("width", $(this).attr("aria-valuenow") + '%');
+        });
+    }, {offset: '80%'});
+    
+    
+    // Facts counter
+    $('[data-toggle="counter-up"]').counterUp({
+        delay: 10,
+        time: 2000
+    });
+
+
+    // Testimonials carousel
+    $(".testimonials-carousel").owlCarousel({
+        center: true,
+        autoplay: true,
+        dots: true,
+        loop: true,
+        responsive: {
+            0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            },
+            992:{
+                items:3
+            }
+        }
+    });
+    
+    
+    // Related post carousel
+    $(".related-slider").owlCarousel({
+        autoplay: true,
+        dots: false,
+        loop: true,
+        nav : true,
+        navText : [
+            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+        ],
+        responsive: {
+            0:{
+                items:1
+            },
+            576:{
+                items:1
+            },
+            768:{
+                items:2
+            }
+        }
+    });
+    
+})(jQuery);
+
+
+</script>
