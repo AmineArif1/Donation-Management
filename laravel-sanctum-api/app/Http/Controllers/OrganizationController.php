@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Organization;
+use App\Models\Partenaire;
 use App\Models\User;
 
 use function PHPSTORM_META\map;
@@ -85,5 +86,14 @@ class OrganizationController extends Controller
     ->where('donation.id', $user->id)
     ->get();
         return $organizations;
+    }
+    public function partenaireOrganization($id)
+
+    {
+        $organization = Organization::find($id);
+        $partnaires = Partenaire::join('organizationPartenaire', 'organizationPartenaire.id', '=', 'partenaire.idPartenaire')
+    ->where('organizationPartenaire.idOrganization', $organization->id)
+    ->get();
+        return $partnaires;
     }
 }

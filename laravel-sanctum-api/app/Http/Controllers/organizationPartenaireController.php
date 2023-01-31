@@ -3,20 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Donation;
-use App\Models\User;
-use App\Models\Organization;
-
-class DonationController extends Controller
+use \App\Models\organizationPartenaire;
+use \App\Models\Organization;
+use \App\Models\Partenaire;
+class organizationPartenaireController extends Controller
 {
-  /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return Donation::all();
+        return organizationPartenaire::all();
     }
 
     /**
@@ -30,15 +24,15 @@ class DonationController extends Controller
         $request->validate([
             'id' => 'required',
             'idOrganization' => 'required',
-            'somme' => 'required'
+            
         ]);
         
-        $user =User::where('id', $request->id)->first();
-        $organization =Organization::where('idOrganization', $request->id)->first();
+        // $user =Partenaire::where('id', $request->id)->first();
+        // $organization =Organization::where('idOrganization', $request->id)->first();
 
-        echo $user->email;
-        MailController::basic_email($user, $request->somme,$organization);
-        return Donation::create($request->all());
+        // echo $user->email;
+        // MailController::basic_email($user, $request->somme,$organization);
+        return organizationPartenaire::create($request->all());
     }
 
     /**
@@ -49,7 +43,7 @@ class DonationController extends Controller
      */
     public function show($id)
     {
-        return Donation::find($id);
+        return organizationPartenaire::find($id);
     }
 
     /**
@@ -61,9 +55,9 @@ class DonationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $Donation = Donation::find($id);
-        $Donation->update($request->all());
-        return $Donation;
+        $organizationPartenaire = organizationPartenaire::find($id);
+        $organizationPartenaire->update($request->all());
+        return $organizationPartenaire;
     }
 
     /**
@@ -74,7 +68,7 @@ class DonationController extends Controller
      */
     public function destroy($id)
     {
-        return Donation::destroy($id);
+        return organizationPartenaire::destroy($id);
     }
 
      /**
@@ -85,5 +79,5 @@ class DonationController extends Controller
      */
     public function search($name)
     {
-        return Donation::where('name', 'like', '%'.$name.'%')->get();
+        return organizationPartenaire::where('name', 'like', '%'.$name.'%')->get();
     }}

@@ -20,6 +20,10 @@ class Organization extends Model
 {
     return $this->belongsToMany(User::class);
 }
+public function partenaires()
+{
+    return $this->belongsToMany(Partenaire::class);
+}
 
 
 }

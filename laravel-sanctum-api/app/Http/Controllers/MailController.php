@@ -7,13 +7,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller {
-   public static function basic_email($user,$somme) {
+   public static function basic_email($user,$somme,$organization) {
   
-       
-      $data = array('name'=>$user->name,'somme'=>$somme);
+      $data = array('name'=>$user->name,'somme'=>$somme,'nameOrganization'=>$organization->nameOrganization);
         Mail::send(['text' => 'mail'], $data, function ($message) use ($user) {
          $message->to($user->email, $user->name)->subject
-            ('Laravel Basic Testing Mail');
+            ('❤️ Thank you for your donation ❤️');
          $message->from('elarifamine1@gmail.com','El Arif Amine');
       });
       echo "Basic Email Sent. Check your inbox.";
