@@ -10,9 +10,7 @@ declare const mytest:any;
 })
 export class AppComponent {
   title = 'ang-project';
-  onclic(){
-    mytest();
-  }
+
 }
  
   

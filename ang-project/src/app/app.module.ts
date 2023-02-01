@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { NgImageSliderModule } from 'ng-image-slider';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,9 +13,10 @@ import { FooterComponent } from './footer/footer.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-import { animate } from '@angular/animations';
 import { SliderComponent } from './slider/slider.component';
 import { AssociationComponent } from './association/association.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +30,17 @@ import { AssociationComponent } from './association/association.component';
     ProfileComponent,
     LoginComponent,
     SliderComponent,
-    AssociationComponent
+    AssociationComponent,
+    CarouselComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgImageSliderModule,
+    NgbModule
     
     
 
