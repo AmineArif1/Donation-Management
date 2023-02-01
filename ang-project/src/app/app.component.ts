@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+declare const mytest:any;
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,5 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang-project';
+  onclic(){
+    mytest();
+  }
 }
+ 
+  
+ 
 

@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { animate } from '@angular/animations';
 import { SliderComponent } from './slider/slider.component';
+import { AssociationComponent } from './association/association.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SliderComponent } from './slider/slider.component';
     FooterComponent,
     ProfileComponent,
     LoginComponent,
-    SliderComponent
+    SliderComponent,
+    AssociationComponent
   ],
   imports: [
     BrowserModule,
