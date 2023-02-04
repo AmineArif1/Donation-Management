@@ -68,7 +68,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 });
 
-Route::post('/upload-image', function (Request $request) {
+Route::post('/admin/addEvent', function (Request $request) {
     if (!$request->hasFile('image')) {
         return response()->json(['error' => 'Image not found in request']);
     }
@@ -79,6 +79,7 @@ Route::post('/upload-image', function (Request $request) {
     }
 
     $path = $image->store('images', 'public');
+    
     return response()->json(['path' => "/storage/$path"]);
 });
 
