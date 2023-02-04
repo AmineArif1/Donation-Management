@@ -8,7 +8,7 @@
     class="relative z-20 flex justify-center lg:justify-start lg: items-center min-h-screen min-w-full"
   >
     <div
-      class="scale-110 w-full max-w-md bg-[#186060] text-white font-sans rounded-md px-6 py-12 mx-2 lg:ml-24"
+      class="well scale-110 w-full max-w-md bg-[#186060] text-white font-sans rounded-md px-6 py-12 mx-2 lg:ml-24"
     >
       <div class="flex flex-col justify-center items-start space-y-2">
         <span class="uppercase text-gray-300 text-sm font-bold"
@@ -25,8 +25,8 @@
         >
       </div>
       <div class="w-full mt-8">
-        <form action="signup" class="flex flex-col p-1 space-y-4">
-          <div class="flex items-center space-x-3">
+        <form (ngSubmit)="login()" class="flex flex-col p-1 space-y-4">
+          <!-- <div class="flex items-center space-x-3">
             <input
               class="bg-transparent border-2 w-1/2 text-white font-semibold px-4 py-2 rounded-lg border-[#00d8f0] placeholder:text-white placeholder:capitalize outline-none"
               type="text"
@@ -37,24 +37,28 @@
               type="text"
               placeholder="Last Name"
             />
-          </div>
+          </div> -->
           <div>
             <input
+              [(ngModel)]="email"
+              name="email"
               class="bg-transparent border-2 w-full text-white font-semibold px-4 py-2 rounded-lg border-[#00d8f0] placeholder:text-white outline-none"
               placeholder="Email"
               type="email"
-              name=""
+              name="email"
               id=""
             />
           </div>
           <div>
             <input
+              [(ngModel)]="password"
               class="bg-transparent border-2 w-full text-white font-semibold px-4 py-2 rounded-lg border-[#00d8f0] placeholder:text-white outline-none"
               type="password"
               placeholder="Password"
+              name="password"
             />
           </div>
-          <div class="flex flex-row items-center">
+          <!-- <div class="flex flex-row items-center">
             <input
               type="checkbox"
               name=""
@@ -65,7 +69,7 @@
               >I agree to all the
               <span class="text-[#00d8f0]">Terms and conditions.</span></span
             >
-          </div>
+          </div> -->
           <div class="flex flex-row items-center space-x-1">
             <div class="w-1/6 cursor-pointer">
               <div

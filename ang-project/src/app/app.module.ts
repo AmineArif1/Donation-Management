@@ -18,6 +18,7 @@ import { AssociationComponent } from './association/association.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from 'src/services/AuthService';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,7 @@ import { HttpClientModule } from '@angular/common/http';
 
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
   
 })
