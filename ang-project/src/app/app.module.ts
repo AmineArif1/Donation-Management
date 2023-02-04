@@ -19,6 +19,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from 'src/services/AuthService';
+import { AdminPannelEventComponent } from './admin-pannel-event/admin-pannel-event.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AuthService } from 'src/services/AuthService';
     SliderComponent,
     AssociationComponent,
     CarouselComponent,
+    AdminPannelEventComponent,
 
     
     

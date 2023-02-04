@@ -1,0 +1,5 @@
+<p>admin-pannel-event works!</p>
+<form #imageForm="ngForm" (ngSubmit)="uploadImage(imageForm.value)">
+  <input type="file" (change)="uploadFile($event)" #fileInput />
+  <button type="submit">Upload</button>
+</form>

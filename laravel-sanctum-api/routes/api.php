@@ -68,7 +68,19 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 });
 
+Route::post('/upload-image', function (Request $request) {
+    if (!$request->hasFile('image')) {
+        return response()->json(['error' => 'Image not found in request']);
+    }
 
+    $image = $request->file('image');
+    if (!$image->isValid()) {
+        return response()->json(['error' => 'Invalid image file']);
+    }
+
+    $path = $image->store('images', 'public');
+    return response()->json(['path' => "/storage/$path"]);
+});
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
