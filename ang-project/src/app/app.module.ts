@@ -17,6 +17,7 @@ import { SliderComponent } from './slider/slider.component';
 import { AssociationComponent } from './association/association.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarouselComponent } from './carousel/carousel.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CarouselComponent } from './carousel/carousel.component';
     SliderComponent,
     AssociationComponent,
     CarouselComponent,
+
     
     
   ],
@@ -40,7 +42,8 @@ import { CarouselComponent } from './carousel/carousel.component';
     AppRoutingModule,
     FormsModule,
     NgImageSliderModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
     
     
 

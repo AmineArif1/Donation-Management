@@ -1,27 +1,97 @@
-<head>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
-</head>
-<body>
-	<div class="main">  	
-		<input type="checkbox" id="chk" aria-hidden="true">
-
-			<div class="signup">
-				<form>
-					<label for="chk" aria-hidden="true">Become a volunteer</label>
-					<input type="text" name="txt" placeholder="User name"  [(ngModel)] ="signupObject.UserName">
-					<input type="email" name="email" placeholder="Email" [(ngModel)] ="signupObject.email">
-					<input type="password" name="pswd" placeholder="Password" [(ngModel)] ="signupObject.password">
-					<button (click)="onSignUp()">Sign up</button>
-				</form>
-			</div>
-
-			<div class="login">
-				<form>
-					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="user-Name" [(ngModel)] ="LoginObject.UserName">
-					<input type="password" name="pswd" placeholder="Password" [(ngModel)] ="LoginObject.password">
-					<button (click)="onLogin()">Login</button>
-				</form>
-			</div>
-	</div>
-</body>
+<section
+  class="w-full h-full min-h-screen bg-[url('/assets/img/backgroundLogin.jpg')] bg-no-repeat bg-cover bg-right"
+>
+  <div
+    class="z-10 w-full min-w-max min-h-screen fixed from-[#022c41] via-[#033a55]"
+  ></div>
+  <div
+    class="relative z-20 flex justify-center lg:justify-start lg: items-center min-h-screen min-w-full"
+  >
+    <div
+      class="scale-110 w-full max-w-md bg-[#186060] text-white font-sans rounded-md px-6 py-12 mx-2 lg:ml-24"
+    >
+      <div class="flex flex-col justify-center items-start space-y-2">
+        <span class="uppercase text-gray-300 text-sm font-bold"
+          >Start for Free</span
+        >
+        <h1 class="text-4xl font-extrabold">
+          Create New Account <span class="text-[#00d8f0]">.</span>
+        </h1>
+        <span class="text-sm text-gray-300 font-semibold"
+          >Already A Member?
+          <a href="#" class="text-[#00d8f0] font-bold font-mono text-xl"
+            >Log in</a
+          ></span
+        >
+      </div>
+      <div class="w-full mt-8">
+        <form action="signup" class="flex flex-col p-1 space-y-4">
+          <div class="flex items-center space-x-3">
+            <input
+              class="bg-transparent border-2 w-1/2 text-white font-semibold px-4 py-2 rounded-lg border-[#00d8f0] placeholder:text-white placeholder:capitalize outline-none"
+              type="text"
+              placeholder="First Name"
+            />
+            <input
+              class="bg-transparent border-2 w-1/2 text-white font-semibold px-4 py-2 rounded-lg border-[#00d8f0] placeholder:text-white outline-none"
+              type="text"
+              placeholder="Last Name"
+            />
+          </div>
+          <div>
+            <input
+              class="bg-transparent border-2 w-full text-white font-semibold px-4 py-2 rounded-lg border-[#00d8f0] placeholder:text-white outline-none"
+              placeholder="Email"
+              type="email"
+              name=""
+              id=""
+            />
+          </div>
+          <div>
+            <input
+              class="bg-transparent border-2 w-full text-white font-semibold px-4 py-2 rounded-lg border-[#00d8f0] placeholder:text-white outline-none"
+              type="password"
+              placeholder="Password"
+            />
+          </div>
+          <div class="flex flex-row items-center">
+            <input
+              type="checkbox"
+              name=""
+              id=""
+              class="outline-none border-[#00d8f0] border-none ml-1 mr-2"
+            />
+            <span class="text-md font-mono font-semibold"
+              >I agree to all the
+              <span class="text-[#00d8f0]">Terms and conditions.</span></span
+            >
+          </div>
+          <div class="flex flex-row items-center space-x-1">
+            <div class="w-1/6 cursor-pointer">
+              <div
+                class="w-12 h-12 rounded-full bg-[#00d8f0] flex items-center justify-center space-x-3"
+              >
+                <img
+                  class="w-8 h-8"
+                  src="assets/img/google-svgrepo-com.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="w-5/6">
+              <button
+                class="w-full bg-white text-[#186060] font-mono font-extrabold text-xl py-3 rounded-full group relative overflow-hidden"
+                type="submit"
+              >
+                <span
+                  class="w-[800px] h-[600px] mt-14 absolute top-0 left-0 bg-[#00d8f0] group-hover:-rotate-12 group-hover:-mt-20 group-hover:-left-12 transition-all duration-700 ease-in-out"
+                ></span>
+                <span class="relative group-hover:text-white">Sign up</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
 declare const mytest:any;
 
 
@@ -9,8 +9,7 @@ declare const mytest:any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ang-project';
-
+  
 }
  
   
