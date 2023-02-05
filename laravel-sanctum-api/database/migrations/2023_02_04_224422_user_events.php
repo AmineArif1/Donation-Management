@@ -13,7 +13,13 @@ class UserEvents extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('user_events', function (Blueprint $table) {
+            $table->unsignedBigInteger('idEvent');
+            $table->unsignedBigInteger('id');
+            $table->timestamps();
+            $table->foreign('idEvent')->references('idEvent')->on('events')->onDelete('cascade');
+            $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**
@@ -23,6 +29,5 @@ class UserEvents extends Migration
      */
     public function down()
     {
-        //
-    }
+        Schema::dropIfExists('user_events');    }
 }

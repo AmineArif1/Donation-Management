@@ -20,14 +20,31 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validatedData = $request->validate([
             'nomEvent' => 'required',
             'dateEvent' => 'required',
             'lieuEvent' => 'required',
             'descriptionEvent' => 'required',
             'imageEvent' => 'required',
         ]);
-        return Events::create($request->all());
+    
+        if (!$request->hasFile('imageEvent')) {
+            return response()->json(['error' => 'Image not found in request']);
+        }
+    
+        $image = $request->file('imageEvent');
+    
+        if (!$image->isValid()) {
+            return response()->json(['error' => 'Invalid image file']);
+        }
+    
+        $path = $image->store('images', 'public');
+    
+        $validatedData['imageEvent'] = $path;
+    
+        $event = Events::create($validatedData);
+    
+        return response()->json($event, 201);
     }
 
     /**

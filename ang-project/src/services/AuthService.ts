@@ -18,9 +18,12 @@ export class AuthService {
     this.http.post<any>(`${this.apiUrl}/login`, { email, password },{headers: new HttpHeaders({'Content-Type':'application/json','Accept':'application/json'})})
       .subscribe(response => {
         // Store the user object
-        const user = new User(response.email, response.name, response.token);
+        console.log(response.token);
+        const user = new User(response.user.name, response.user.email, response.token);
         this.currentUser = user;
+        console.log(this.currentUser);
         localStorage.setItem('token', this.currentUser.token);
+        console.log(localStorage.getItem('token'));
         this.router.navigate(['/home']);
 
       },

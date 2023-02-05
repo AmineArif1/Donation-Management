@@ -20,6 +20,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from 'src/services/AuthService';
 import { AdminPannelEventComponent } from './admin-pannel-event/admin-pannel-event.component';
+import { SendEvent } from 'src/services/SendEvent';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { AdminPannelEventComponent } from './admin-pannel-event/admin-pannel-eve
 
     
   ],
-  providers: [AuthService],
+  providers: [AuthService,SendEvent],
   bootstrap: [AppComponent]
   
 })

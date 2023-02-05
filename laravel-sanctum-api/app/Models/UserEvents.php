@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class UserEvents extends Model
 {
     use HasFactory;
+    protected $table = 'user_events';
+    protected $fillable = [ 
+        'idEvent',
+        'idUser',
+    ];
 }

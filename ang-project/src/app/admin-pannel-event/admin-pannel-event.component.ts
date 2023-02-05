@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { SendEvent } from 'src/services/SendEvent';
 
 @Component({
   selector: 'app-root',
@@ -7,21 +8,23 @@ import { HttpClient } from '@angular/common/http';
   styles: []
 })
 export class AdminPannelEventComponent {
-  constructor(private http: HttpClient) {}
-  private apiUrl = 'http://127.0.0.1:8000';
+  nomEvent: string;
+  descriptionEvent: string;
+  dateEvent: string;
+  lieuEvent: string;
+  imageEvent: File;
+  endPoint="admin"
 
+  constructor(private send:SendEvent) {}
+  
   uploadFile(event:any) {
-    const file = event.target.files[0];
-    this.uploadImage(file);
-  }
+    this.imageEvent = event.target.files[0];
+    console.log(this.imageEvent)
 
-  uploadImage(image: File) {
-    const formData = new FormData();
-    formData.append('image', image);
-
-    this.http.post(this.apiUrl+'/api/upload-image', formData)
-      .subscribe((response: any) => {
-        console.log(response);
-      });
   }
+  sendEvent(){
+
+    this.send.sendEvent(this.nomEvent,this.descriptionEvent,this.dateEvent,this.lieuEvent,this.imageEvent,localStorage.getItem('token'));
+  }
+    
 }

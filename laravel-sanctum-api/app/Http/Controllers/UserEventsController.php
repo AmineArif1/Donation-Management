@@ -7,24 +7,14 @@ use Illuminate\Http\Request;
 
 class UserEventsController extends Controller
 {
-    /**
+  /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return UserEvents::all();
     }
 
     /**
@@ -35,51 +25,60 @@ class UserEventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'idEvent' => 'required',
+            'idUser' => 'required',
+          
+        ]);
+
+        return UserEvents::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\UserEvents  $userEvents
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(UserEvents $userEvents)
+    public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\UserEvents  $userEvents
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(UserEvents $userEvents)
-    {
-        //
+        return UserEvents::find($id);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\UserEvents  $userEvents
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserEvents $userEvents)
+    public function update(Request $request, $id)
     {
-        //
+        $UserEvents = UserEvents::find($id);
+        $UserEvents->update($request->all());
+        return $UserEvents;
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\UserEvents  $userEvents
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserEvents $userEvents)
+    public function destroy($id)
     {
-        //
+        return UserEvents::destroy($id);
+    }
+
+     /**
+     * Search for a name
+     *
+     * @param  str  $name
+     * @return \Illuminate\Http\Response
+     */
+    public function search($name)
+    {
+        return UserEvents::where('name', 'like', '%'.$name.'%')->get();
     }
 }

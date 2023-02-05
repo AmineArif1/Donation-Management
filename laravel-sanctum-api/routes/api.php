@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PartenaireController;
 use App\Http\Controllers\OrganizationPartenaireController;
+use App\Http\Controllers\UserEventsController;
+use App\Http\Controllers\EventsController;
 
 
 
@@ -65,6 +67,21 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::put('/partenaireOrganization/{id}', [organizationPartenaireController::class, 'update']);
     Route::delete('/partenaireOrganization/{id}', [organizationPartenaireController::class, 'destroy']);
     Route::get('/partenaireOrganization/search/{name}', [organizationPartenaireController::class, 'search']);
+    // Events
+    Route::get('/events', [EventsController::class, 'index']);
+    Route::get('/events/{id}', [EventsController::class, 'show']);
+    Route::post('/events', [EventsController::class, 'store']);
+    Route::put('/events/{id}', [EventsController::class, 'update']);
+    Route::delete('/events/{id}', [EventsController::class, 'destroy']);
+    Route::get('/events/search/{name}', [EventsController::class, 'search']);
+    // UserEvents
+    Route::get('/userEvents', [UserEventsController::class, 'index']);
+    Route::get('/userEvents/{id}', [UserEventsController::class, 'show']);
+    Route::post('/userEvents', [UserEventsController::class, 'store']);
+    Route::put('/userEvents/{id}', [UserEventsController::class, 'update']);
+    Route::delete('/userEvents/{id}', [UserEventsController::class, 'destroy']);
+    Route::get('/userEvents/search/{name}', [UserEventsController::class, 'search']);
+
 
 });
 
@@ -79,7 +96,7 @@ Route::post('/admin/addEvent', function (Request $request) {
     }
 
     $path = $image->store('images', 'public');
-    
+
     return response()->json(['path' => "/storage/$path"]);
 });
 

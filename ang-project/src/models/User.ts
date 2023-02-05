@@ -4,9 +4,10 @@ export class User {
     email: string;
     token: string;
   
-    constructor(id: number, name: string, email: string) {
-      this.id = id;
+    constructor( name:string,email: string, token: string) {
+   
       this.name = name;
       this.email = email;
+      this.token = token;
     }
   }
