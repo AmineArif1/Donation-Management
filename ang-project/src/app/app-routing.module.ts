@@ -23,6 +23,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'carousel', component: CarouselComponent},
   { path: 'admin', component: AdminPannelEventComponent},
+
 ];
 
 @NgModule({
